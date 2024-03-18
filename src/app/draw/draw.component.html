@@ -1,11 +1,22 @@
-<input [(ngModel)]="aux" type="number" name="bet" id="bet" (keydown.enter)="choice()">
-<button (click)="choice()">escolher</button>
-<button (click)="draw()">sortear</button>
-<p>Números escolhidos: {{ userNumbers.join(', ') }}</p>
-<div>
-  <ul>
-    <li *ngFor="let number of winningNumbers">{{ number }}</li>
-  </ul>
+<div class="d-flex justify-content-center align-items-center vh-100">
+  <div class="text-center">
+    <div class="card" style="max-width: 400px;">
+      <div class="card-body">
+        <h5 class="card-title mb-4"><i class="bi bi-coin"></i> Faça sua escolha <i class="bi bi-coin"></i></h5>
+        <div class="mb-3">
+          <input [(ngModel)]="aux" type="number" class="form-control" name="bet" id="bet" (keydown.enter)="choice()"
+            placeholder="Escolha um número">
+        </div>
+        <div class="btn-group d-flex justify-content-center">
+          <button class="btn btn-warning me-2" (click)="choice()">Escolher</button>
+          <button class="btn btn-success" (click)="draw()">Sortear</button>
+        </div>
+      </div>
+    </div>
+    <div class="mt-4">
+      <p *ngIf="userNumbers.length > 0">Números escolhidos: {{ userNumbers.join(', ') }}</p>
+      <p *ngIf="winningNumbers.length > 0">Números sorteados: {{winningNumbers.join(', ')}}</p>
+      <p *ngIf="winningNumbers.length > 0">Acertos: {{check()}}</p>
+    </div>
+  </div>
 </div>
-
-{{check()}}
