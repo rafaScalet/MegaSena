@@ -7,15 +7,32 @@ import { Component } from '@angular/core';
   styleUrl: './draw.component.css'
 })
 export class DrawComponent {
+  aux: any
   winningNumbers: number[] = []
+  userNumbers: number[] = []
+
+  choice(){
+    if(this.userNumbers.length <= 10){
+      if(this.aux >= 1 && this.aux <= 60){
+        this.userNumbers.push(this.aux)
+        this.aux = ''
+      }
+      else{
+        alert("escolhe entre 1 a 60")
+        this.aux = ''
+      }
+    }
+    else{
+      alert("somente 10 números")
+    }
+  }
 
   draw(){
     //make a list with all the numbers for draw
     const list: number[] = []
-    for(let i = 1; i <= 5; i++){
+    for(let i = 1; i <= 60; i++){
       list.push(i)
     }
-
     //do the draw
     const winningNumbers: number[] = []
     for(let i = 0; i < 6; i++){

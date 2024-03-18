@@ -1,4 +1,6 @@
+<input [(ngModel)]="aux" type="number" name="" id="">
+<button (click)="choice()">escolher</button>
 <button (click)="draw()">sortear</button>
 <ul>
-  <li *ngFor="let number of winningNumbers">{{ number }}</li>
+  <li *ngFor="let number of userNumbers">{{ number }}</li>
 </ul>
