@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrl: './draw.component.css'
 })
 export class DrawComponent {
-
+  draw(num: number = 0){
+    num = Math.floor((Math.random() * 60) + 1);
+    alert(num);
+  }
 }
